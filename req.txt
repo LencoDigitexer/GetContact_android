@@ -37,3 +37,4 @@ virtualenv==20.0.25
 vk-api==11.8.0
 wrapt==1.12.1
 zipp==3.1.0
+pycrypto
