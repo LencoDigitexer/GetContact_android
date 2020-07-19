@@ -3,6 +3,7 @@ from kivymd.uix.button import MDRaisedButton
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.textfield import MDTextField
 from kivymd.uix.label import MDLabel
+from kivymd.uix.selectioncontrol import MDSwitch
 
 
 import requests
@@ -87,15 +88,20 @@ class MainApp(MDApp):
                 self.label.text = str("Номера в базе нет")
         except: self.label.text = str("Неправильный номер")
 
-    def build(self):
+    def switchTheme(self, value):
+        print("test")
         self.theme_cls.theme_style = "Dark"
+
+    def build(self):
+        #self.theme_cls.theme_style = "Dark"
         bl = MDBoxLayout(orientation="vertical",  padding= "40dp", pos_hint={"center_x": .5, "center_y": .5}, spacing=40)
 
+        self.selection = MDSwitch(pos_hint= {'center_x': .5, 'center_y': .5}, on_release=self.switchTheme)
         self.label = MDLabel(text="Введите номер в поле", halign="center", theme_text_color="Primary")
         self.textinput = MDTextField(hint_text="Max text length = 11",  max_text_length="11", mode="rectangle", pos_hint={"center_x": .5, "center_y": .5}, padding= "40dp")
         self.button = MDRaisedButton(text="Определить номер", pos_hint={"center_x": .5, "center_y": .5}, on_press=self.main)
         
-
+        #bl.add_widget(self.selection)
         bl.add_widget(self.label)
         bl.add_widget(self.textinput)
         #bl.add_widget(self.nulllabel)
