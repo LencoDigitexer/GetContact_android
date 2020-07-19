@@ -94,12 +94,12 @@ class MainApp(MDApp):
 
     def build(self):
         #self.theme_cls.theme_style = "Dark"
-        bl = MDBoxLayout(orientation="vertical",  padding= "40dp", pos_hint={"center_x": .5, "center_y": .5}, spacing=40)
+        bl = MDBoxLayout(orientation="vertical",  padding= "40dp",  spacing=40, adaptive_height= True)
 
         self.selection = MDSwitch(pos_hint= {'center_x': .5, 'center_y': .5}, on_release=self.switchTheme)
         self.label = MDLabel(text="Введите номер в поле", halign="center", theme_text_color="Primary")
         self.textinput = MDTextField(hint_text="Max text length = 11",  max_text_length="11", mode="rectangle", pos_hint={"center_x": .5, "center_y": .5}, padding= "40dp")
-        self.button = MDRaisedButton(text="Определить номер", pos_hint={"center_x": .5, "center_y": .5}, on_press=self.main)
+        self.button = MDRaisedButton(text="Определить номер", pos_hint={"center_x": .5}, on_press=self.main)
         
         #bl.add_widget(self.selection)
         bl.add_widget(self.label)
