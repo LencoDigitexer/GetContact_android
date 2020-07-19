@@ -83,13 +83,15 @@ class MainApp(MDApp):
             if finfo['result']['profile']['displayName']:
                 print(finfo['result']['profile']['displayName'])
                 self.label.text = str(phone + " = " + finfo['result']['profile']['displayName'])
+            if finfo['result']['profile']['displayName'] is None:
+                self.label.text = str("Номера в базе нет")
         except: self.label.text = str("Неправильный номер")
 
     def build(self):
         self.theme_cls.theme_style = "Dark"
         bl = MDBoxLayout(orientation="vertical",  padding= "40dp", pos_hint={"center_x": .5, "center_y": .5}, spacing=40)
 
-        self.label = MDLabel(text="88005553535=Домашние деньги", halign="center", theme_text_color="Primary")
+        self.label = MDLabel(text="Введите номер в поле", halign="center", theme_text_color="Primary")
         self.textinput = MDTextField(hint_text="Max text length = 11",  max_text_length="11", mode="rectangle", pos_hint={"center_x": .5, "center_y": .5}, padding= "40dp")
         self.button = MDRaisedButton(text="Определить номер", pos_hint={"center_x": .5, "center_y": .5}, on_press=self.main)
         
